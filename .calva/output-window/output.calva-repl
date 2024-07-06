@@ -1,0 +1,457 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+; 
+; See also the Calva Inspector: https://calva.io/inspector/
+
+PLEASE NOTE
+We will update the default location of this file.
+The new default location will be
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false:
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; Connecting using "deps.edn" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in Terminal: (cd /Users/hilalmufti/programs/automagic; clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"1.1.1"},cider/cider-nrepl {:mvn/version,"0.47.1"}}}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]")
+; Using host:port localhost:62037 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉user꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+; Syntax error compiling at (src/automagic.clj:6:1).
+; Unable to resolve symbol: main in this context
+clj꞉automagic꞉> 
+nil
+clj꞉automagic꞉> 
+; Syntax error compiling at (src/automagic.clj:6:1).
+; Unable to resolve symbol: main in this context
+clj꞉automagic꞉> 
+#'automagic/main
+clj꞉automagic꞉> 
+; Hello, world!
+nil
+clj꞉automagic꞉> 
+; Hello, world!
+nil
+clj꞉automagic꞉> 
+#'automagic/main
+clj꞉automagic꞉> 
+"hello world"
+clj꞉automagic꞉> 
+#'automagic/make-rat
+clj꞉automagic꞉> 
+#'automagic/make-rat
+clj꞉automagic꞉> 
+; Execution error (ArityException) at automagic/eval10345 (REPL:11).
+; Wrong number of args (0) passed to: automagic/make-rat
+clj꞉automagic꞉> 
+0
+clj꞉automagic꞉> 
+; Syntax error compiling at (src/automagic.clj:0:0).
+; Unable to resolve symbol: x in this context
+clj꞉automagic꞉> 
+#'automagic/numer
+clj꞉automagic꞉> 
+#'automagic/denom
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+; Execution error (IllegalArgumentException) at automagic/eval10350 (REPL:17).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉automagic꞉> 
+; Execution error (IllegalArgumentException) at automagic/eval10352 (REPL:17).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉automagic꞉> 
+; Syntax error compiling at (src/automagic.clj:0:0).
+; Unable to resolve symbol: pair in this context
+clj꞉automagic꞉> 
+; Execution error (IllegalArgumentException) at automagic/eval10354 (REPL:17).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉automagic꞉> 
+#'automagic/cons
+; 
+; WARNING: cons already refers to: #'clojure.core/cons in namespace: automagic, being replaced by: #'automagic/cons
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+#'automagic/cons
+clj꞉automagic꞉> 
+#'automagic/car
+clj꞉automagic꞉> 
+#'automagic/cdr
+clj꞉automagic꞉> 
+; Syntax error macroexpanding clojure.core/defn at (src/automagic.clj:15:1).
+; cons - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (cons 1 2) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉automagic꞉> 
+#'automagic/cons
+clj꞉automagic꞉> 
+; Syntax error macroexpanding clojure.core/defn at (src/automagic.clj:15:1).
+; cons - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (cons 1 2) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉automagic꞉> 
+; Syntax error macroexpanding clojure.core/defn at (src/automagic.clj:15:1).
+; cons - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (cons 1 2) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉automagic꞉> 
+; Syntax error macroexpanding clojure.core/defn at (src/automagic.clj:15:1).
+; automagic/cons - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (automagic/cons 1 2) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉automagic꞉> 
+#'automagic/x
+clj꞉automagic꞉> 
+1
+clj꞉automagic꞉> 
+#function[automagic/cdr]
+clj꞉automagic꞉> 
+#'automagic/print-rat
+clj꞉automagic꞉> 
+#'automagic/cons
+clj꞉automagic꞉> 
+#'automagic/car
+clj꞉automagic꞉> 
+#'automagic/cdr
+clj꞉automagic꞉> 
+#'automagic/make-rat
+clj꞉automagic꞉> 
+#'automagic/numer
+clj꞉automagic꞉> 
+#'automagic/denom
+clj꞉automagic꞉> 
+#'automagic/print-rat
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+; 
+; 1/2
+nil
+clj꞉automagic꞉> 
+; 
+; 1/2
+nil
+clj꞉automagic꞉> 
+; 
+; 1/2
+nil
+clj꞉automagic꞉> 
+#'automagic/str-rat
+clj꞉automagic꞉> 
+"1/2"
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+#function[automagic/denom]
+clj꞉automagic꞉> 
+6
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+6
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; Syntax error compiling at (src/automagic.clj:38:17).
+; Unable to resolve symbol: y in this context
+clj꞉automagic꞉> 
+#'automagic/x
+clj꞉automagic꞉> 
+#'automagic/y
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+6
+clj꞉automagic꞉> 
+6
+clj꞉automagic꞉> 
+6
+clj꞉automagic꞉> 
+1
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+1
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+#'automagic/x
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+4
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+81
+clj꞉automagic꞉> 
+9
+clj꞉automagic꞉> 
+9
+clj꞉automagic꞉> 
+#'automagic/x
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+#'automagic/y
+clj꞉automagic꞉> 
+#'automagic/x
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+#'automagic/y
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+3
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+#'automagic/dispatch
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+4
+clj꞉automagic꞉> 
+; 
+; 8/16
+nil
+clj꞉automagic꞉> 
+; 
+; 8/16
+nil
+clj꞉automagic꞉> 
+; 
+; 8/16
+nil
+clj꞉automagic꞉> 
+2
+clj꞉automagic꞉> 
+; 
+; 4/4
+nil
+clj꞉automagic꞉> 
+; 
+; 4/4
+nil
+clj꞉automagic꞉> 
+; 
+; 6/9
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+; numer x 2
+; denom x 6
+; numer y 2
+; denom y 6
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; numer x 2
+; denom x 6
+; numer y 2
+; denom y 6
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+; numer x 2
+; denom x 6
+; numer y 2
+; denom y 6
+; 
+; 24/36
+nil
+clj꞉automagic꞉> 
+#'automagic/cons
+clj꞉automagic꞉> 
+#'automagic/cons
+clj꞉automagic꞉> 
+#'automagic/car
+clj꞉automagic꞉> 
+#'automagic/cdr
+clj꞉automagic꞉> 
+#'automagic/make-rat
+clj꞉automagic꞉> 
+; numer x 3
+; denom x 6
+; numer y 2
+; denom y 6
+; 
+; 30/36
+nil
+clj꞉automagic꞉> 
+; numer x 1
+; denom x 3
+; numer y 1
+; denom y 2
+; 
+; 5/6
+nil
+clj꞉automagic꞉> 
+#'automagic/add-rat
+clj꞉automagic꞉> 
+#'automagic/sub-rat
+clj꞉automagic꞉> 
+; 
+; -1/6
+nil
+clj꞉automagic꞉> 
+; 
+; 1/6
+nil
+clj꞉automagic꞉> 
+#'automagic/mul-rat
+clj꞉automagic꞉> 
+#function[automagic/cons/dispatch--10521]
+clj꞉automagic꞉> 
+; 
+; 1/6
+nil
+clj꞉automagic꞉> 
+; 
+; 3/6
+nil
+clj꞉automagic꞉> 
+; 
+; 3/8
+nil
+clj꞉automagic꞉> 
+#'automagic/div-rat
+clj꞉automagic꞉> 
+; 
+; 12/2
+nil
+clj꞉automagic꞉> 
+#'automagic/equal-rat?
+clj꞉automagic꞉> 
+true
+clj꞉automagic꞉> 
