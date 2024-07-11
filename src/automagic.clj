@@ -6,18 +6,24 @@
     (gcd b (mod a b))))
 
 
+;; (defn cons [x y]
+;;   (defn dispatch [m]
+;;     (cond (= m 0) x
+;;           (= m 1) y
+;;           :else (throw (Exception. "Argument not 0 or 1"))))
+;;   dispatch)
+
 (defn cons [x y]
-  (defn dispatch [m]
-    (cond (= m 0) x
-          (= m 1) y
-          :else (throw (Exception. "Argument not 0 or 1"))))
-  dispatch)
+  (list x y))
+
+(defn pair? [x]
+  (list? x))
 
 (defn car [z]
-  (z 0))
+  (nth z 0))
 
 (defn cdr [z]
-  (z 1))
+  (nth z 1))
 
 (defn make-rat [n d]
   (let [g (gcd n d)]
@@ -82,25 +88,47 @@
 
 (memq 'apple '(x (apple suace) y apple pear))
 
-(defn variable? [e])
+(defn variable? [x]
+  (symbol? x))
 
-(defn same-variable? [v1 v2])
+(defn same-variable? [v1 v2]
+  (and (variable? v1) (variable? v2) (= v1 v2)))
 
-(defn sum? [e])
+(defn sum? [x]
+  (and (pair? x) (= (car x) '+)))
 
-(defn addend [e])
+(sum? (make-sum 1 2))
 
-(defn augend [e])
+(defn addend [s]
+  (second s))
 
-(defn make-sum [a1 a2])
+(defn augend [s]
+  (nth s 2))
 
-(defn product? [e])
+(defn make-sum [a1 a2]
+  (cond (= a1 0) a2
+        (= a2 0) a1
+        (and (number? a1) (number? a2)) (+ a1 a2)
+        :else (list '+ a1 a2)))
 
-(defn multiplier [e])
+(defn product? [x]
+  (and (pair? x) (= (car x) '*)))
 
-(defn multiplicand [e])
+(defn multiplier [p]
+  (second p))
 
-(defn make-product [m1 m2])
+(defn multiplicand [p]
+  (nth p 2))
+
+(defn make-product [m1 m2]
+  (cond
+    (or (= m1 0) (= m2 0)) 0
+    (= m1 1) m2
+    (= m2 1) m1
+    (and (number? m1) (number? m2)) (* m1 m2)
+    :else (list '* m1 m2)))
+
+
 
 (defn deriv [exp var]
   (cond (number? exp) 0
@@ -113,3 +141,9 @@
                         (make-product (deriv (multiplier exp) var)
                                       (multiplicand exp)))
         :else (throw (Exception. "unknown expression type: DERIV"))))
+
+(deriv '(+ x 3) 'x)
+
+(deriv '(* x y) 'x)
+
+(deriv '(* (* x y) (+ x 3)) 'x)
