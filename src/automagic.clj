@@ -5,14 +5,6 @@
     a
     (gcd b (mod a b))))
 
-
-;; (defn cons [x y]
-;;   (defn dispatch [m]
-;;     (cond (= m 0) x
-;;           (= m 1) y
-;;           :else (throw (Exception. "Argument not 0 or 1"))))
-;;   dispatch)
-
 (defn cons [x y]
   (list x y))
 
