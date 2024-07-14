@@ -89,8 +89,6 @@
 (defn sum? [x]
   (and (pair? x) (= (car x) '+)))
 
-(sum? (make-sum 1 2))
-
 (defn addend [s]
   (second s))
 
@@ -120,8 +118,6 @@
     (and (number? m1) (number? m2)) (* m1 m2)
     :else (list '* m1 m2)))
 
-
-
 (defn deriv [exp var]
   (cond (number? exp) 0
         (variable? exp) (if (same-variable? exp var) 1 0)
@@ -131,7 +127,13 @@
                         (make-product (multiplier exp)
                                       (deriv (multiplicand exp) var))
                         (make-product (deriv (multiplier exp) var)
-                                      (multiplicand exp)))
+                                      (multiplicand exp))) 
+        (exponentiation? exp) (make-product
+                               (make-product (exponent exp)
+                                             (make-exponentiation 
+                                              (base exp) 
+                                              (make-sum (exponent exp) -1)))
+                               (deriv (base exp) var))
         :else (throw (Exception. "unknown expression type: DERIV"))))
 
 (deriv '(+ x 3) 'x)
@@ -139,3 +141,32 @@
 (deriv '(* x y) 'x)
 
 (deriv '(* (* x y) (+ x 3)) 'x)
+
+(defn exponentiation? [x]
+  (and (pair? x) (= (car x) '**)))
+
+(defn make-exponentiation [b e]
+  (cond (= e 0) 1
+        (= e 1) b
+        (and (number? b) (number? e)) (Math/pow b e)
+        :else (list '** b e)))
+
+(defn base [e]
+  (second e))
+
+(defn exponent [e]
+  (nth e 2))
+
+(def x-cubed (make-exponentiation 'x 3))
+(def x-zero (make-exponentiation 'x 1))
+
+(exponent x-cubed)
+
+(deriv x-cubed 'x)
+
+(defn f [a b & as]
+  (println a)
+  (println b)
+  (println as))
+
+(f 1 2 3 4)
